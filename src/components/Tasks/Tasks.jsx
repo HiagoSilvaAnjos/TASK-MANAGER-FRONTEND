@@ -1,7 +1,8 @@
-// import TaskItem from "../Task-item/Task-item";
-import "./Tasks.scss";
-import axios from "axios";
+import TaskItem from "../Task-item/Task-item";
 
+import "./Tasks.scss";
+
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Tasks = () => {
@@ -31,7 +32,7 @@ const Tasks = () => {
           {task
             .filter((task) => task.isCompleted == false)
             .map((lastTask) => (
-              <p key={lastTask.id}>{lastTask.description}</p>
+              <TaskItem key={lastTask.id} task={lastTask} />
             ))}
         </div>
       </div>
@@ -41,7 +42,7 @@ const Tasks = () => {
           {task
             .filter((task) => task.isCompleted)
             .map((lastTask) => (
-              <p key={lastTask.id}>{lastTask.description}</p>
+              <TaskItem key={lastTask.id} task={lastTask} />
             ))}
         </div>
       </div>

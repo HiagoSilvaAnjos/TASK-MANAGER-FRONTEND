@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const TaskItem = ({ task }) => {
   return (
     <div>
-      <h2>{task.description}</h2>
+      <h1>{task.description}</h1>
       <p>{task.isCompleted ? "Completa" : "Não completa"}</p>
     </div>
   );
