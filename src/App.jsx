@@ -25,7 +25,7 @@ function App() {
     <>
       <div>
         {task.map((task) => {
-          return <TaskItem key={task.id} task={task} />;
+          return <TaskItem key={task} task={task} />;
         })}
       </div>
     </>
