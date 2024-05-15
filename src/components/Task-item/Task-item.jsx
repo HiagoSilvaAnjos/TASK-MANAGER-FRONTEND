@@ -4,12 +4,14 @@ import "./Task-item.scss";
 import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task, fetchTasks }) => {
   const handleTaskDeletion = async () => {
     try {
       await axios.delete(
         `https://task-manager-backend-gc5o.onrender.com/tasks/${task._id}`
       );
+      await fetchTasks();
+      alert("Tarefa removida com sucesso!");
     } catch (error) {
       console.log(error.message);
     }
@@ -45,7 +47,8 @@ TaskItem.propTypes = {
     description: PropTypes.string.isRequired,
     isCompleted: PropTypes.bool.isRequired,
     _id: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
+  fetchTasks: PropTypes.func,
 };
 
 export default TaskItem;
