@@ -1,3 +1,4 @@
+import AddTask from "../Add-task/Add-task";
 import TaskItem from "../Task-item/Task-item";
 
 import "./Tasks.scss";
@@ -28,6 +29,7 @@ const Tasks = () => {
       <h2>Minhas Tarefas</h2>
       <div className="last-tasks">
         <h3>Ultimas Tarefas</h3>
+        <AddTask />
         <div className="tasks-list">
           {task
             .filter((task) => task.isCompleted == false)
