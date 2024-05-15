@@ -14,6 +14,8 @@ const Tasks = () => {
       const { data } = await axios.get(
         "https://task-manager-backend-gc5o.onrender.com/tasks"
       );
+
+      console.log(data);
       setTasks(data);
     } catch (error) {
       console.log(error.message);
