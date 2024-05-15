@@ -1,4 +1,7 @@
+import PropTypes from "prop-types";
+
 import { useState } from "react";
+
 import CustomInput from "../Custom-input/Custom-input";
 
 import "./Add-task.scss";
@@ -6,7 +9,7 @@ import CustomButton from "../Custom-button/Custom-button";
 import { FaPlus } from "react-icons/fa";
 import axios from "axios";
 
-const AddTask = () => {
+const AddTask = ({ fetchTask }) => {
   const [task, setTask] = useState("");
 
   const onChange = (e) => {
@@ -23,6 +26,9 @@ const AddTask = () => {
         description: task,
         isCompleted: false,
       });
+
+      await fetchTask();
+      setTask("");
     } catch (error) {
       console.log(error.message);
     }
@@ -44,3 +50,7 @@ const AddTask = () => {
 };
 
 export default AddTask;
+
+AddTask.propTypes = {
+  fetchTask: PropTypes.func.isRequired,
+};
