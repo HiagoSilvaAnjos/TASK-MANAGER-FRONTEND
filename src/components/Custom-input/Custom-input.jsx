@@ -2,7 +2,13 @@ import PropTypes from "prop-types";
 
 import "./Custom-input.scss";
 
-const CustomInput = ({ label, value, onChange }) => {
+const CustomInput = ({ label, value, onChange, onEnterPress }) => {
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      onEnterPress();
+    }
+  };
+
   return (
     <div className="custom-input-container">
       <input
@@ -10,6 +16,7 @@ const CustomInput = ({ label, value, onChange }) => {
         className="custom-input"
         value={value}
         onChange={(e) => onChange(e)}
+        onKeyDown={(e) => handleKeyDown(e)}
       />
       {label ? (
         <label
@@ -28,4 +35,5 @@ CustomInput.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  onEnterPress: PropTypes.func,
 };
