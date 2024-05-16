@@ -17,6 +17,21 @@ const TaskItem = ({ task, fetchTasks }) => {
     }
   };
 
+  const handleTaskCompletionChange = async (event) => {
+    try {
+      await axios.patch(
+        `https://task-manager-backend-gc5o.onrender.com/tasks/${task._id}`,
+        {
+          isCompleted: event.target.checked,
+        }
+      );
+      await fetchTasks();
+      alert("Tarefa Modificada com sucesso!");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <div className="task-item-container">
       <div className="task-description">
@@ -28,7 +43,11 @@ const TaskItem = ({ task, fetchTasks }) => {
           }
         >
           {task.description}
-          <input type="checkbox" defaultChecked={task.isCompleted} />
+          <input
+            onChange={(event) => handleTaskCompletionChange(event)}
+            type="checkbox"
+            defaultChecked={task.isCompleted}
+          />
           <span
             className={task.isCompleted ? "checkmark completed" : "checkmark"}
           ></span>
