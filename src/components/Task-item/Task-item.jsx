@@ -11,7 +11,6 @@ const TaskItem = ({ task, fetchTasks }) => {
         `https://task-manager-backend-gc5o.onrender.com/tasks/${task._id}`
       );
       await fetchTasks();
-      alert("Tarefa removida com sucesso!");
     } catch (error) {
       console.log(error.message);
     }
@@ -26,7 +25,6 @@ const TaskItem = ({ task, fetchTasks }) => {
         }
       );
       await fetchTasks();
-      alert("Tarefa Modificada com sucesso!");
     } catch (error) {
       console.log(error.message);
     }
