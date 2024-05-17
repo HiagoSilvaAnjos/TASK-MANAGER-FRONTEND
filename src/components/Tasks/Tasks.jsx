@@ -4,12 +4,12 @@ import TaskItem from "../Task-item/Task-item";
 import "./Tasks.scss";
 
 import axios from "axios";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const Tasks = () => {
   const [task, setTasks] = useState([]);
 
-  const fetchTask = async () => {
+  const fetchTask = useCallback(async () => {
     try {
       const { data } = await axios.get(
         "https://task-manager-backend-gc5o.onrender.com/tasks"
@@ -19,7 +19,7 @@ const Tasks = () => {
     } catch (error) {
       console.log(error.message);
     }
-  };
+  }, []);
 
   const lastTasks = useMemo(() => {
     return task.filter((task) => task.isCompleted == false);
@@ -31,7 +31,7 @@ const Tasks = () => {
 
   useEffect(() => {
     fetchTask();
-  }, []);
+  }, [fetchTask]);
 
   return (
     <div className="tasks-container">
