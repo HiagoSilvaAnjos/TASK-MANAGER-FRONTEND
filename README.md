@@ -1,8 +1,14 @@
-# React + Vite
+# Task Manager simple
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um aplicativo de gerenciamento de tarefas simples desenvolvido com React + Vite + Styled-components. Permite ao usuário inserir suas tarefas, marca-las como concluída e deletala.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **React Router**: Para navegação entre as páginas.
+- **Styled Components**: Para estilização com CSS-in-JS.
+- **Neon DB**: Banco de dados.
+
+## Estrutura do Projeto
+
+![alt text](/src/assets/images/image.png)
